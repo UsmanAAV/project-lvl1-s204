@@ -1,0 +1,2 @@
+#!/usr/bin/node src/bin/brain-games.js
+console.log("Welcome to the Brain Games!");

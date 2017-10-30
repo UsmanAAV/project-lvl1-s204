@@ -1,8 +1,8 @@
 {
-  "name": "project1",
-  "version": "1.0.0",
+  "name": "project-brain-games",
+  "version": "0.1.0",
   "description": "My first project at hexlet.io",
-  "main": "brain-games.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,19 @@
   "bugs": {
     "url": "https://github.com/UsmanAAV/project-lvl1-s204/issues"
   },
-  "homepage": "https://github.com/UsmanAAV/project-lvl1-s204#readme"
+  "homepage": "https://github.com/UsmanAAV/project-lvl1-s204#readme",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "babel-node": "babel-node",
+    "prepublish": "npm run build"
+  },
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  }
 }

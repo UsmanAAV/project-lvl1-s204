@@ -6,7 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "babel-node": "babel-node",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build",
+    "eslint": "./node_modules/.bin/eslint ./src/bin/brain-games.js ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,12 +27,13 @@
     "babel-preset-stage-0": "*",
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint-plugin-import": "^2.8.0",
+    "js-yaml": "^3.10.0"
+  },
+  "dependencies": {
+    "readline-sync": "*"
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
-  },
-  "dependencies": {
-    "readline-sync": "^1.4.7"
   }
 }

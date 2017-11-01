@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-import { sayWelcome, askTheName } from '..';
+import { say, getAnswer } from '..';
 
-sayWelcome();
-
-const name = askTheName();
-
-console.log(`Welcome, ${name}!`);
+say('Welcome to the Brain Games!\n');
+const name = getAnswer('May I have your name? ');
+say(`Welcome, ${name}!`);

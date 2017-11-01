@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { sayWelcome, askTheName, runBrainEven } from '..';
+import { say, getAnswer, runBrainGame } from '..';
 
-sayWelcome('Answer "yes" if number even otherwise answer "no".');
+say('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".\n');
+const name = getAnswer('May I have your name? ');
+say('\n');
 
-const name = askTheName();
-
-runBrainEven(name);
+runBrainGame(name, 'brain-even');

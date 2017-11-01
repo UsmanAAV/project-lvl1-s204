@@ -1,42 +1,78 @@
 import readlineSync from 'readline-sync';
 
-export const sayWelcome = (introduction = '') => {
-  console.log('Welcome to the Brain Games!');
-  console.log(`${introduction}\n`);
-};
+export const say = text => console.log(text);
 
-export const askTheName = () => {
-  const actual = readlineSync.question('May I have your name? ');
-  return actual;
-};
+export const getAnswer = question => readlineSync.question(question);
 
-const isEven = (number) => {
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer ');
-  switch (answer) {
-    case 'yes':
-      if (number % 2 === 0) { return true; } return false;
-    case 'no':
-      if (number % 2 === 0) { return false; } return true;
-    default: return false;
+const getRand100 = () => Math.floor(Math.random() * 100); // numbers must be two-valued - 0..99
+
+const getRand3 = () => Math.ceil(Math.random() * 3); // numbers 1, 2, 3
+
+const check = (userName, userAnswer, rightAnswer, counter) => {
+  let i = counter;
+  if (userAnswer === rightAnswer) {
+    say('Correct!');
+    i += 1;
+  } else {
+    say(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
+    say(`Let's try again, ${userName}!`);
+    i = 4;
   }
+  return i;
 };
 
-export const runBrainEven = (name) => {
-  let i = 0;
-  while (i < 3) {
-    const number = Math.round(Math.random() * 100);
-    const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
-    const wrongAnswer = number % 2 === 0 ? 'no' : 'yes';
+const runBrainEven = (userName, counter) => {
+  const number = getRand100();
+  const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
+  const userAnswer = getAnswer(`Question: ${number}\nYour answer `);
+  return check(userName, userAnswer, rightAnswer, counter);
+};
 
-    if (isEven(number)) {
-      console.log('Correct!');
-      i += 1;
-    } else {
-      console.log(`'${wrongAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
-      console.log(`Let's try again, ${name}!`);
-      i = 4;
+const runBrainCalc = (userName, counter) => {
+  const num1 = getRand100();
+  const num2 = getRand100();
+  const operation = getRand3(); // 1 is +, 2 is -, 3 is *
+  let result = 0;
+  let opr = '';
+  switch (operation) {
+    case 1: {
+      result = num1 + num2;
+      opr = '+';
+      break;
+    }
+    case 2: {
+      result = num1 - num2;
+      opr = '-';
+      break;
+    }
+    case 3: {
+      result = num1 * num2;
+      opr = '*';
+      break;
+    }
+    default: {
+      result = 0;
+      opr = '';
     }
   }
-  if (i < 4) { console.log(`Congratulation, ${name}!`); }
+  const userAnswer = getAnswer(`Question: ${num1} ${opr} ${num2}\nYour answer: `);
+  return check(userName, userAnswer, String(result), counter);
+};
+
+export const runBrainGame = (userName, gameName) => {
+  let i = 0;
+  while (i < 3) {
+    switch (gameName) {
+      case 'brain-even':
+        i = runBrainEven(userName, i);
+        break;
+      case 'brain-calc':
+        i = runBrainCalc(userName, i);
+        break;
+      default:
+        say('We have no this game.');
+        return;
+    }
+  }
+  if (i < 4) { say(`Congratulations, ${userName}!`); }
 };

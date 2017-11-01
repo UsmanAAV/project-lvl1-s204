@@ -1,16 +1,16 @@
 import readlineSync from 'readline-sync';
 
-export const saywelcome = (introduction = '') => {
+export const sayWelcome = (introduction = '') => {
   console.log('Welcome to the Brain Games!');
   console.log(`${introduction}\n`);
 };
 
-export const askthename = () => {
+export const askTheName = () => {
   const actual = readlineSync.question('May I have your name? ');
   return actual;
 };
 
-const checkeven = (number) => {
+const isEven = (number) => {
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer ');
   switch (answer) {
@@ -22,18 +22,18 @@ const checkeven = (number) => {
   }
 };
 
-export const runbraineven = (name) => {
+export const runBrainEven = (name) => {
   let i = 0;
   while (i < 3) {
     const number = Math.round(Math.random() * 100);
-    const rightanswer = number % 2 === 0 ? 'yes' : 'no';
-    const wronganswer = number % 2 === 0 ? 'no' : 'yes';
+    const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
+    const wrongAnswer = number % 2 === 0 ? 'no' : 'yes';
 
-    if (checkeven(number)) {
+    if (isEven(number)) {
       console.log('Correct!');
       i += 1;
     } else {
-      console.log(`'${wronganswer}' is wrong answer ;(. Correct answer was '${rightanswer}'`);
+      console.log(`'${wrongAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
       console.log(`Let's try again, ${name}!`);
       i = 4;
     }

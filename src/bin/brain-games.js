@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { saywelcome, askthename } from '..';
+import { sayWelcome, askTheName } from '..';
 
-saywelcome();
+sayWelcome();
 
-const name = askthename();
+const name = askTheName();
 
 console.log(`Welcome, ${name}!`);

@@ -1,11 +1,11 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = (introduction = '') => {
+export const saywelcome = (introduction = '') => {
   console.log('Welcome to the Brain Games!');
   console.log(`${introduction}\n`);
 };
 
-export const acquaintanceship = () => {
+export const askthename = () => {
   const actual = readlineSync.question('May I have your name? ');
   return actual;
 };
@@ -22,7 +22,7 @@ const checkeven = (number) => {
   }
 };
 
-export const braineven = (name) => {
+export const runbraineven = (name) => {
   let i = 0;
   while (i < 3) {
     const number = Math.round(Math.random() * 100);

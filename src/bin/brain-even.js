@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { greeting, acquaintanceship, braineven } from '..';
+import { saywelcome, askthename, runbraineven } from '..';
 
-greeting('Answer "yes" if number even otherwise answer "no".');
+saywelcome('Answer "yes" if number even otherwise answer "no".');
 
-const name = acquaintanceship();
+const name = askthename();
 
-braineven(name);
+runbraineven(name);

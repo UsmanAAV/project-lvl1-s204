@@ -1,13 +1,17 @@
 {
   "name": "project-brain-games",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "My first project at hexlet.io",
   "main": "dist/index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "babel-node": "babel-node",
     "prepublishOnly": "npm run build",
-    "eslint": "./node_modules/.bin/eslint ./src/bin/brain-games.js ./src/index.js"
+    "eslint": "./node_modules/.bin/eslint ./src/bin/brain-games.js ./src/bin/brain-even.js ./src/index.js"
+  },
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "repository": {
     "type": "git",
@@ -32,9 +36,5 @@
   },
   "dependencies": {
     "readline-sync": "*"
-  },
-  "bin": {
-    "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-games.js"
   }
 }

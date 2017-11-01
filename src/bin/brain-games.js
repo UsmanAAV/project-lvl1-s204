@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { greeting, acquaintanceship, braineven } from '..';
+import { greeting, acquaintanceship } from '..';
 
 greeting();
 
 const name = acquaintanceship();
 
-braineven(name);
+console.log(`Welcome, ${name}!`);

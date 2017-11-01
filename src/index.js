@@ -59,6 +59,19 @@ const runBrainCalc = (userName, counter) => {
   return check(userName, userAnswer, String(result), counter);
 };
 
+const runBrainGCD = (userName, counter) => {
+  const num1 = getRand100();
+  const num2 = getRand100();
+  let result = 1;
+
+  for (let i = 1; i < (num1 < num2 ? num1 : num2); i += 1) {
+    if (num1 % i === 0 && num2 % i === 0) { result = i; }
+  }
+
+  const userAnswer = getAnswer(`Question: ${num1} ${num2}\nYour answer: `);
+  return check(userName, userAnswer, String(result), counter);
+};
+
 export const runBrainGame = (userName, gameName) => {
   let i = 0;
   while (i < 3) {
@@ -68,6 +81,9 @@ export const runBrainGame = (userName, gameName) => {
         break;
       case 'brain-calc':
         i = runBrainCalc(userName, i);
+        break;
+      case 'brain-gcd':
+        i = runBrainGCD(userName, i);
         break;
       default:
         say('We have no this game.');

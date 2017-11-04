@@ -16,6 +16,11 @@ export const getGCD = (number1, number2) => {
   return result;
 };
 
+export const insertFigure = (number, index, figure) =>
+  Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1)) +
+   (figure * (10 ** index)) +
+   (number % (10 ** index));
+
 const checkAnswer = (userName, userAnswer, rightAnswer, counter) => {
   let i = counter;
   if (userAnswer === rightAnswer) {
@@ -36,9 +41,9 @@ export const runBrainGame = (runGameIter, gameQuestion) => {
 
   let i = 0;
   while (i < 3) {
-    const gameData = runGameIter();
-    const userAnswer = getAnswer(gameData[0]);
-    i = checkAnswer(userName, userAnswer, gameData[1], i);
+    const [question, rightAnswer] = runGameIter();
+    const userAnswer = getAnswer(question);
+    i = checkAnswer(userName, userAnswer, rightAnswer, i);
   }
   if (i < 4) { say(`Congratulations, ${userName}!`); }
 };

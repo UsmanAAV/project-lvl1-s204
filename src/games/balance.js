@@ -1,4 +1,4 @@
-import { getRandom, runBrainGame } from '..';
+import { insertFigure, getRandom, runBrainGame } from '..';
 
 const isBalancedNumber = (number) => {
   let i = number;
@@ -25,62 +25,45 @@ const isBalancedNumber = (number) => {
   return result;
 };
 
-const reConstruct = (number, indexMax, indexMin) => {
-  const max = (Math.floor(number / (10 ** indexMax))) % 10;
-  const min = (Math.floor(number / (10 ** indexMin))) % 10;
-
-  let res = '';
+const getMaxAndMin = (number) => {
   let i = number;
+  let figure = (i % 10);
+  let maximum = figure;
+  let minimum = figure;
+  let indexMaximum = 0;
+  let indexMinimum = 0;
   let index = 0;
+
   while (Math.ceil(i / 10) > 0) {
-    switch (index) {
-      case indexMax:
-        if (max - min === 1) {
-          res = min + res;
-        } else {
-          res = ((i % 10) - Math.floor((max - min) / 2)) + res;
-        }
-        break;
-      case indexMin:
-        if (max - min === 1) {
-          res = max + res;
-        } else {
-          res = ((i % 10) + Math.ceil((max - min) / 2)) + res;
-        }
-        break;
-      default:
-        res = (i % 10) + res;
+    figure = (i % 10);
+    if (figure >= maximum) {
+      maximum = figure;
+      indexMaximum = index;
     }
-
-    i = Math.floor(i / 10);
-    index += 1;
-  }
-
-  return res;
-};
-
-const findMaxOrMin = (number, maxOrMin) => {
-  let i = number;
-  let index = 0;
-  let figure = i % 10;
-  let indexMaxOrMin = 0;
-
-  while (Math.ceil(i / 10) > 0) {
-    if (maxOrMin === 'max' ? figure <= i % 10 : figure > i % 10) {
-      figure = i % 10;
-      indexMaxOrMin = index;
+    if (figure < minimum) {
+      minimum = figure;
+      indexMinimum = index;
     }
     i = Math.floor(i / 10);
     index += 1;
   }
 
-  return indexMaxOrMin;
+  return [maximum, indexMaximum, minimum, indexMinimum];
 };
 
 const doBalance = (number) => {
-  const indexMax = findMaxOrMin(number, 'max');
-  const indexMin = findMaxOrMin(number, 'min');
-  return parseInt(reConstruct(number, indexMax, indexMin), 10);
+  const [max, imax, min, imin] = getMaxAndMin(number);
+  let res = 0;
+
+  if (max - min === 1) {
+    res = insertFigure(number, imax, min);
+    res = insertFigure(res, imin, max);
+  } else {
+    res = insertFigure(number, imax, max - Math.floor((max - min) / 2));
+    res = insertFigure(res, imin, min + Math.ceil((max - min) / 2));
+  }
+
+  return res;
 };
 
 export const runIterBrainBalance = () => {

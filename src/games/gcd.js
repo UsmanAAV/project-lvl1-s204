@@ -1,14 +1,17 @@
 import { getRandom, runBrainGame, getGCD } from '..';
 
-const runIterBrainGCD = () => {
+const generateQuestionAnswer = () => {
   const num1 = getRandom(100);
   const num2 = getRandom(100);
+  const gcd = getGCD(num1, num2);
 
-  return [`Question: ${num1} ${num2}\nYour answer: `, String(getGCD(num1, num2))];
+  const question = `${num1} ${num2}`;
+  const answer = String(gcd);
+  return [question, answer];
 };
 
 const runBrainGCD = () => {
-  runBrainGame(runIterBrainGCD, 'Find the greatest common divisor of given numbers.');
+  runBrainGame(generateQuestionAnswer, 'Find the greatest common divisor of given numbers.');
 };
 
 export default runBrainGCD;

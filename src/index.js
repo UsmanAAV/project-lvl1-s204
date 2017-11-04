@@ -42,7 +42,7 @@ export const runBrainGame = (runGameIter, gameQuestion) => {
   let i = 0;
   while (i < 3) {
     const [question, rightAnswer] = runGameIter();
-    const userAnswer = getAnswer(question);
+    const userAnswer = getAnswer(`Question: ${question}\nYour answer `);
     i = checkAnswer(userName, userAnswer, rightAnswer, i);
   }
   if (i < 4) { say(`Congratulations, ${userName}!`); }

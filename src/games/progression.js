@@ -15,16 +15,17 @@ const getProgression = (number1, number2) => {
   return result;
 };
 
-const runIterBrainProgression = () => {
+const generateQuestionAnswer = () => {
   const num1 = getRandom(100);
   const num2 = getRandom(4) + 1;
-  const result = getProgression(num1, num2);
+  const question = getProgression(num1, num2);
 
-  return [result, String(num1)];
+  const answer = String(num1);
+  return [question, answer];
 };
 
 const runBrainProgression = () => {
-  runBrainGame(runIterBrainProgression, 'What number is missing in this progression?');
+  runBrainGame(generateQuestionAnswer, 'What number is missing in this progression?');
 };
 
 export default runBrainProgression;

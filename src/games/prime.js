@@ -10,21 +10,22 @@ const isPrime = (number) => {
   return true;
 };
 
-const runIterBrainPrime = () => {
+const generateQuestionAnswer = () => {
   const number = getRandom(100) + 1;
-  let rightAnswer = '';
+  let answer = '';
 
   if (isPrime(number)) {
-    rightAnswer = 'yes';
+    answer = 'yes';
   } else {
-    rightAnswer = 'no';
+    answer = 'no';
   }
 
-  return [`Question: ${number}\nYour answer `, rightAnswer];
+  const question = String(number);
+  return [question, answer];
 };
 
 const runBrainPrime = () => {
-  runBrainGame(runIterBrainPrime, 'Answer "yes" if number prime otherwise answer "no".');
+  runBrainGame(generateQuestionAnswer, 'Answer "yes" if number prime otherwise answer "no".');
 };
 
 export default runBrainPrime;

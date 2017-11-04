@@ -1,6 +1,6 @@
 {
   "name": "project-brain-games",
-  "version": "0.6.6",
+  "version": "0.7.0",
   "description": "My first project at hexlet.io",
   "main": "dist/index.js",
   "scripts": {

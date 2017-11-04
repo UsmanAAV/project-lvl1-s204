@@ -66,7 +66,7 @@ const doBalance = (number) => {
   return res;
 };
 
-export const runIterBrainBalance = () => {
+export const generateQuestionAnswer = () => {
   const num = getRandom(9900) + 100;
   let result = num;
 
@@ -74,11 +74,13 @@ export const runIterBrainBalance = () => {
     result = doBalance(result);
   }
 
-  return [`Question: ${num}\nYour answer `, String(result)];
+  const question = String(num);
+  const answer = String(result);
+  return [question, answer];
 };
 
 const runBrainBalance = () => {
-  runBrainGame(runIterBrainBalance, 'Balance the given number.');
+  runBrainGame(generateQuestionAnswer, 'Balance the given number.');
 };
 
 export default runBrainBalance;

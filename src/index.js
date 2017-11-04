@@ -17,7 +17,7 @@ export const getGCD = (number1, number2) => {
 };
 
 export const insertFigure = (number, index, figure) =>
-  Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1)) +
+  (Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1))) +
    (figure * (10 ** index)) +
    (number % (10 ** index));
 

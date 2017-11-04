@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { runBrainGame } from '..';
-import runBrainEven from '../games/even';
+import { runBrainEven } from '..';
 
-runBrainGame(runBrainEven, 'Answer "yes" if number even otherwise answer "no".');
+runBrainEven();

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { runBrainGame } from '..';
-import runBrainGCD from '../games/gcd';
+import { runBrainGCD } from '..';
 
-runBrainGame(runBrainGCD, 'Find the greatest common divisor of given numbers.');
+runBrainGCD();

@@ -3,6 +3,7 @@ import runIterBrainEven from './games/even';
 import runIterBrainCalc from './games/calc';
 import runIterBrainGCD from './games/gcd';
 import runIterBrainBalance from './games/balance';
+import runIterBrainProgression from './games/progression';
 
 export const say = text => console.log(text);
 
@@ -64,4 +65,8 @@ export const runBrainGCD = () => {
 
 export const runBrainBalance = () => {
   runBrainGame(runIterBrainBalance, 'Balance the given number.');
+};
+
+export const runBrainProgression = () => {
+  runBrainGame(runIterBrainProgression, 'What number is missing in this progression?');
 };

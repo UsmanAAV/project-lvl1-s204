@@ -89,7 +89,6 @@ const runIterBrainBalance = (userName, counter) => {
 
   while (!isBalancedNumber(result)) {
     result = doBalance(result);
-    console.log(result);
   }
 
   const userAnswer = getAnswer(`Question: ${num}\nYour answer: `);

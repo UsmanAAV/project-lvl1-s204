@@ -1,4 +1,4 @@
-import { getRandom, getAnswer, checkAnswer } from '..';
+import { getRandom, runBrainGame } from '..';
 
 const getProgression = (number1, number2) => {
   const offset = getRandom(10);
@@ -15,13 +15,16 @@ const getProgression = (number1, number2) => {
   return result;
 };
 
-const runIterBrainProgression = (userName, counter) => {
+const runIterBrainProgression = () => {
   const num1 = getRandom(100);
   const num2 = getRandom(4) + 1;
   const result = getProgression(num1, num2);
 
-  const userAnswer = getAnswer(result);
-  return checkAnswer(userName, parseInt(userAnswer, 10), num1, counter);
+  return [result, String(num1)];
 };
 
-export default runIterBrainProgression;
+const runBrainProgression = () => {
+  runBrainGame(runIterBrainProgression, 'What number is missing in this progression?');
+};
+
+export default runBrainProgression;

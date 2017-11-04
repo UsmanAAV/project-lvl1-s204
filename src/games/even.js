@@ -1,10 +1,13 @@
-import { getRandom, getAnswer, checkAnswer } from '..';
+import { getRandom, runBrainGame } from '..';
 
-const runIterBrainEven = (userName, counter) => {
+const runIterBrainEven = () => {
   const number = getRandom(100);
   const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
-  const userAnswer = getAnswer(`Question: ${number}\nYour answer `);
-  return checkAnswer(userName, userAnswer, rightAnswer, counter);
+  return [`Question: ${number}\nYour answer `, rightAnswer];
 };
 
-export default runIterBrainEven;
+const runBrainEven = () => {
+  runBrainGame(runIterBrainEven, 'Answer "yes" if number even otherwise answer "no".');
+};
+
+export default runBrainEven;

@@ -1,4 +1,4 @@
-import { getRandom, getAnswer, checkAnswer } from '..';
+import { getRandom, runBrainGame } from '..';
 
 const isBalancedNumber = (number) => {
   let i = number;
@@ -83,7 +83,7 @@ const doBalance = (number) => {
   return parseInt(reConstruct(number, indexMax, indexMin), 10);
 };
 
-const runIterBrainBalance = (userName, counter) => {
+export const runIterBrainBalance = () => {
   const num = getRandom(9900) + 100;
   let result = num;
 
@@ -91,8 +91,11 @@ const runIterBrainBalance = (userName, counter) => {
     result = doBalance(result);
   }
 
-  const userAnswer = getAnswer(`Question: ${num}\nYour answer: `);
-  return checkAnswer(userName, userAnswer, String(result), counter);
+  return [`Question: ${num}\nYour answer `, String(result)];
 };
 
-export default runIterBrainBalance;
+const runBrainBalance = () => {
+  runBrainGame(runIterBrainBalance, 'Balance the given number.');
+};
+
+export default runBrainBalance;

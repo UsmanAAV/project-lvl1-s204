@@ -1,9 +1,4 @@
 import readlineSync from 'readline-sync';
-import runIterBrainEven from './games/even';
-import runIterBrainCalc from './games/calc';
-import runIterBrainGCD from './games/gcd';
-import runIterBrainBalance from './games/balance';
-import runIterBrainProgression from './games/progression';
 
 export const say = text => console.log(text);
 
@@ -21,7 +16,7 @@ export const getGCD = (number1, number2) => {
   return result;
 };
 
-export const checkAnswer = (userName, userAnswer, rightAnswer, counter) => {
+const checkAnswer = (userName, userAnswer, rightAnswer, counter) => {
   let i = counter;
   if (userAnswer === rightAnswer) {
     say('Correct!');
@@ -34,39 +29,16 @@ export const checkAnswer = (userName, userAnswer, rightAnswer, counter) => {
   return i;
 };
 
-const getUserName = (text) => {
-  say(`Welcome to the Brain Games!\n${text}\n`);
-  const name = getAnswer('May I have your name? ');
-  say(`Hello, ${name}!\n`);
-  return name;
-};
-
 export const runBrainGame = (runGameIter, gameQuestion) => {
-  const userName = getUserName(gameQuestion);
+  say(`Welcome to the Brain Games!\n${gameQuestion}\n`);
+  const userName = getAnswer('May I have your name? ');
+  say(`Hello, ${userName}!\n`);
 
   let i = 0;
   while (i < 3) {
-    i = runGameIter(userName, i);
+    const gameData = runGameIter();
+    const userAnswer = getAnswer(gameData[0]);
+    i = checkAnswer(userName, userAnswer, gameData[1], i);
   }
   if (i < 4) { say(`Congratulations, ${userName}!`); }
-};
-
-export const runBrainEven = () => {
-  runBrainGame(runIterBrainEven, 'Answer "yes" if number even otherwise answer "no".');
-};
-
-export const runBrainCalc = () => {
-  runBrainGame(runIterBrainCalc, 'What is the result of the expression?');
-};
-
-export const runBrainGCD = () => {
-  runBrainGame(runIterBrainGCD, 'Find the greatest common divisor of given numbers.');
-};
-
-export const runBrainBalance = () => {
-  runBrainGame(runIterBrainBalance, 'Balance the given number.');
-};
-
-export const runBrainProgression = () => {
-  runBrainGame(runIterBrainProgression, 'What number is missing in this progression?');
 };

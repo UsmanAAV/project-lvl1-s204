@@ -1,6 +1,6 @@
-import { getRandom, getAnswer, checkAnswer } from '..';
+import { getRandom, runBrainGame } from '..';
 
-const runIterBrainCalc = (userName, counter) => {
+const runIterBrainCalc = () => {
   const num1 = getRandom(100);
   const num2 = getRandom(100);
   const operation = getRandom(3); // 1 is +, 2 is -, 3 is *
@@ -27,8 +27,11 @@ const runIterBrainCalc = (userName, counter) => {
       opr = '';
     }
   }
-  const userAnswer = getAnswer(`Question: ${num1} ${opr} ${num2}\nYour answer: `);
-  return checkAnswer(userName, userAnswer, String(result), counter);
+  return [`Question: ${num1} ${opr} ${num2}\nYour answer: `, String(result)];
 };
 
-export default runIterBrainCalc;
+const runBrainCalc = () => {
+  runBrainGame(runIterBrainCalc, 'What is the result of the expression?');
+};
+
+export default runBrainCalc;

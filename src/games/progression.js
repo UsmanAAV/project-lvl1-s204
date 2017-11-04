@@ -6,7 +6,7 @@ const getProgression = (start, step) => {
 
   for (let i = 0; i < 10; i += 1) {
     if ((start + (step * i)) === num) {
-      result += ` .. `;
+      result += ' .. ';
     } else {
       result += ` ${(start + (step * i))} `;
     }

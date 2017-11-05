@@ -1,14 +1,4 @@
-import { getRandom, runBrainGame } from '..';
-
-const isPrime = (number) => {
-  let i = 2;
-  while (i < number) {
-    if (number % i === 0) { return false; }
-    i += 1;
-  }
-
-  return true;
-};
+import { getRandom, isPrime, runBrainGame } from '..';
 
 const generateQuestionAnswer = () => {
   const number = getRandom(100) + 1;

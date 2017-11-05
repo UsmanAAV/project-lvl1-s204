@@ -21,6 +21,16 @@ export const insertFigure = (number, index, figure) =>
    (figure * (10 ** index)) +
    (number % (10 ** index));
 
+export const isPrime = (number) => {
+  let i = 2;
+  while (i < number) {
+    if (number % i === 0) { return false; }
+    i += 1;
+  }
+
+  return true;
+};
+
 const checkAnswer = (userName, userAnswer, rightAnswer, counter) => {
   let i = counter;
   if (userAnswer === rightAnswer) {

@@ -6,11 +6,6 @@ export const getAnswer = question => readlineSync.question(question);
 
 export const getRandom = limit => Math.floor(Math.random() * limit);
 
-export const insertFigure = (number, index, figure) =>
-  (Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1))) +
-   (figure * (10 ** index)) +
-   (number % (10 ** index));
-
 const checkAnswer = (userName, userAnswer, rightAnswer, counter) => {
   let i = counter;
   if (userAnswer === rightAnswer) {

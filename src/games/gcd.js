@@ -1,7 +1,8 @@
 import { getRandom, runBrainGame } from '..';
 
 const getGCD = (a, b) => {
-  return b ? getGCD(b, a % b) : a;
+  const gcd = b ? getGCD(b, a % b) : a;
+  return gcd;
 };
 
 const generateQuestionAnswer = () => {

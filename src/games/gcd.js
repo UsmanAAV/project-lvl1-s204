@@ -1,4 +1,8 @@
-import { getRandom, runBrainGame, getGCD } from '..';
+import { getRandom, runBrainGame } from '..';
+
+const getGCD = (a, b) => {
+  return b ? getGCD(b, a % b) : a;
+};
 
 const generateQuestionAnswer = () => {
   const num1 = getRandom(100);

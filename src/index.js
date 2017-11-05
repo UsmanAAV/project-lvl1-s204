@@ -6,16 +6,6 @@ export const getAnswer = question => readlineSync.question(question);
 
 export const getRandom = limit => Math.floor(Math.random() * limit);
 
-export const getGCD = (number1, number2) => {
-  let result = 1;
-
-  for (let i = 1; i <= (number1 < number2 ? number1 : number2); i += 1) {
-    if (number1 % i === 0 && number2 % i === 0) { result = i; }
-  }
-
-  return result;
-};
-
 export const insertFigure = (number, index, figure) =>
   (Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1))) +
    (figure * (10 ** index)) +

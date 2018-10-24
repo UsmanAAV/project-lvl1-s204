@@ -34,16 +34,16 @@
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
-    "eslint": "^4.10.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.7.0",
-    "jest": "^22.1.4",
-    "jest-cli": "^22.1.4",
-    "js-yaml": "^3.10.0"
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jest": "*",
+    "jest": "*",
+    "jest-cli": "*",
+    "js-yaml": "*"
   },
   "dependencies": {
     "readline-sync": "*"

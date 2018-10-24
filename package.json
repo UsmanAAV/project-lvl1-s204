@@ -46,6 +46,6 @@
     "js-yaml": "*"
   },
   "dependencies": {
-    "readline-sync": "*"
+    "readline-sync": "^*"
   }
 }

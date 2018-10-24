@@ -51,10 +51,11 @@ const getMaxAndMin = (number) => {
   return [maximum, indexMaximum, minimum, indexMinimum];
 };
 
-const insertFigure = (number, index, figure) =>
-  (Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1))) +
-  (figure * (10 ** index)) +
-  (number % (10 ** index));
+const insertFigure = (number, index, figure) => (
+  (Math.floor(number / (10 ** (index + 1))) * (10 ** (index + 1)))
+  + (figure * (10 ** index))
+  + (number % (10 ** index))
+);
 
 const doBalance = (number) => {
   const [max, imax, min, imin] = getMaxAndMin(number);

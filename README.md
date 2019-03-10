@@ -1,21 +1,36 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/25c3cd99b2790312ff40/maintainability)](https://codeclimate.com/github/UsmanAAV/project-lvl1-s204/maintainability)
-
-[![Build Status](https://travis-ci.org/UsmanAAV/project-lvl1-s204.svg?branch=master)](https://travis-ci.org/UsmanAAV/project-lvl1-s204)
+# project-brain-games
+[![Build Status](https://travis-ci.org/UsmanAAV/project-lvl1-s204.svg?branch=master)](https://travis-ci.org/UsmanAAV/project-lvl1-s204) [![Maintainability](https://api.codeclimate.com/v1/badges/25c3cd99b2790312ff40/maintainability)](https://codeclimate.com/github/UsmanAAV/project-lvl1-s204/maintainability)
 
 #project-lvl1-s204
 
-#Описание
+## Что это?
+Это приложение, реализованное в рамках изучения профессии Javascript-разработчика на [hexlet.io](https://ru.hexlet.io/?ref=155709). Ссылка на проект --- [brain-games](https://ru.hexlet.io/projects/2/sessions/462?ref=155709)
+
+## Цель
+Познакомиться с экосистемой JavaScript:
+
+ - научиться пользоваться пакетным менеджером `npm`;
+ - опубликовать [свой пакет](https://www.npmjs.com/package/project-brain-games) в `npm`;
+ - подключить и настроить в своем проекте:
+	 - транспайлер [babel](https://babeljs.io/);
+	 - линтер [eslint](http://eslint.org/);
+ - научиться создавать исполняемые файлы для `nodejs`.
+ - научиться подключать системы для автоматического отслеживания качества кода -- [Codeclimate](https://codeclimate.com/)
+ - научиться использовать в проекте системы для непрерывной интеграции -- [Travis](https://travis-ci.org/)
+
+## Описание
 В рамках проекта необходимо реализовать набор мини-игр, запускаемых из консоли. Эти игры похожи на то, что обычно называют "Brain Games".
 
 Пример игры:
 
+```
 $ brain-progression
 
 Welcome to the Brain Game!
 What number is missing in this progression?
 
-May I have your name? Roman
-Hello, Roman!
+May I have your name? Azamat
+Hello, Azamat!
 
 Question: 14 .. 18 20 22 24 26 28
 Your answer: 16
@@ -26,4 +41,28 @@ Correct!
 Question: 12 15 18 21 .. 27 30 33
 Your answer: 24
 Correct!
-Congratulations, Roman!
+Congratulations, Azamat!
+```
+
+## Установка
+`npm i -g project-brain-games` (локальная установка и запуск не предусмотрены)
+
+## Запуск
+**`brain-even`** -- Игра "Проверка на чётность". Суть игры в следующем: пользователю показывается случайное число. И ему нужно ответить `yes`, если число четное, или `no` - если нечетное.
+
+**`brain-calc`** -- Игра "Калькулятор". Пользователю показывается случайное математическое выражение, например `35 + 16`, которое нужно вычислить и записать правильный ответ.
+
+**`brain-gcd`** -- Игра "НОД" (наибольший общий делитель). Суть игры в следующем: пользователю показывается два случайных числа, например, `25` `50`. Пользователь должен вычислить и ввести наибольший общий делитель этих чисел.
+
+**`brain-balance`** -- Игра "Баланс". Необходимо сбалансировать число. Сбалансированное число - это число, в котором наименьшая цифра отличается от наибольшей не более чем на единицу.
+
+Примеры сбалансированных чисел: `111`, `233`, `55`, `001`, `9999`, `0001`.
+
+А, например, число `123` не является сбалансированным, потому что наименьшая цифра в нем равна `1`, а наибольшая - `3`, а разница между ними - `2`. При балансировке числа "большие" цифры отдают излишки "меньшим" так, чтобы в итоге число стало сбалансированным. В случае с числом `123` цифра `3` должна отдать единицу цифре `1`, и в итоге получим число `222`.
+
+Порядок цифр в сбалансированном числе – по возрастанию. Например, вместо 322 и 232 нужно указывать 223.
+
+**`brain-progression`** -- Игра "Арифметическая прогрессия". Показываем игроку ряд чисел, образующий арифметическую прогрессию, заменив любое из чисел двумя точками. Игрок должен определить это число.
+
+**`brain-prime`** -- Игра "Простое ли число?". Определить, является ли число простым.
+
